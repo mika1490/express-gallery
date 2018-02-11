@@ -10,7 +10,7 @@ module.exports = {
  database : 'gallery',
  charset: 'utf8'
     }, 
- debug: true,
+//  debug: true,
  migrations: {
  directory: __dirname + '/db/migrations',
     }

@@ -1,0 +1,9 @@
+body {
+  background-color: white;
+
+  .parent {
+    display: flex;
+    flex-direction: column;
+    height: 100%
+  }
+}
