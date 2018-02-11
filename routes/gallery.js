@@ -8,7 +8,7 @@ const handlebars = require('express-handlebars');
 const router = express.Router();
 
 router.get('/new', (req, res) => {
-  return res.render('new');
+  return res.render('./partials/new');
 })
 router.route(`/`)
   .post((req, res) => {
@@ -32,7 +32,7 @@ router.route(`/`)
         let locals = {
           db: imageArray
         }
-        return res.render(`gallery`, locals)
+        return res.render(`./partials/gallery`, locals)
       })
       .catch(err => {
         return res.json({ message: err.message });
@@ -51,7 +51,7 @@ router.route(`/:id`)
         } else {
           let singleImage = image.attributes;
           console.log(singleImage)
-          return res.render(`singleimage`, singleImage)
+          return res.render(`./partials/singleimage`, singleImage)
         }
       })
       .catch(err => {
@@ -89,7 +89,7 @@ router.route(`/:id/edit`)
       .fetch()
       .then(image => {
         let editImage = image.attributes;
-        res.render(`edit`, editImage)
+        res.render(`./partials/edit`, editImage)
       })
   })
 

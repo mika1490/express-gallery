@@ -1,0 +1,28 @@
+<title>View Image</title>
+{{!-- <h1>Express Gallery</h1> --}}
+<div id="wrapper">
+
+  {{> templates/header}}
+  <hr id="divider">
+
+</div>
+
+<div id="single-wrapper">
+  <div id="details">
+    <h1>Image by: {{author}}</h1>
+    <img src="{{link}}" alt="">
+    <br>
+    <p>{{description}}</p>
+  </div>
+  
+  <div id="other-images">
+    <div class="spacer"></div>
+    <div>Other Images from {{author}}</div>
+    <p />
+    {{#each gallery}}
+      <a href="/gallery/{{id}}">
+        <img src="{{link}}" alt=""><p />
+      </a>
+    {{/each}}
+  </div>
+</div>

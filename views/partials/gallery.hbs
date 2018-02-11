@@ -1,0 +1,19 @@
+
+<title>All Images</title>
+
+<div id="wrapper">
+
+  {{> templates/header}}
+  <hr id="divider">
+  {{> templates/masthead}}
+
+</div>
+
+<hr id="main-divider">
+
+{{#each db}}
+  <div class="information">
+    <a href="/gallery/{{id}}"><img src="{{link}}" alt =""></a> 
+    <p />Submitted by: {{author}}
+  </div>
+{{/each}}

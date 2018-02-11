@@ -1,0 +1,20 @@
+<title>Edit Image</title>
+
+<div class="user-entry">
+  <h1>Edit Image Information</h1>
+  <h2>Image By: {{author}}</h2>
+
+  <img src="{{link}}" alt="">
+
+  <form action="/gallery/{{id}}?_method=PUT" method="post">
+  
+    <label for="PUT-link">LINK:</label>  
+    <input type="text" name="link" value="{{link}}">
+    <label for="PUT-description">DESCRIPTION:</label>
+    <textarea name="description">{{description}}</textarea>
+    <input type="submit" value="EDIT">
+    <input type="submit" value ="DELETE" formaction="/gallery/{{id}}?_method=DELETE" method="post">
+  </form>
+</div>
+  
+
