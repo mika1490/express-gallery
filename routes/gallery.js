@@ -8,7 +8,8 @@ const handlebars = require('express-handlebars');
 const router = express.Router();
 
 router.get('/new', (req, res) => {
-  return res.render('./partials/new');
+  // console.log(res);
+  return res.render('./new');
 })
 router.route(`/`)
   .post((req, res) => {
@@ -32,7 +33,7 @@ router.route(`/`)
         let locals = {
           db: imageArray
         }
-        return res.render(`./partials/gallery`, locals)
+        return res.render(`./gallery`, locals)
       })
       .catch(err => {
         return res.json({ message: err.message });
@@ -47,11 +48,9 @@ router.route(`/:id`)
       .then(image => {
         if (!image) {
           return res.redirect('/gallery')
-          // throw new Error(`Image Not Found`);
         } else {
           let singleImage = image.attributes;
-          console.log(singleImage)
-          return res.render(`./partials/singleimage`, singleImage)
+          return res.render(`./singleimage`, singleImage)
         }
       })
       .catch(err => {
@@ -89,7 +88,7 @@ router.route(`/:id/edit`)
       .fetch()
       .then(image => {
         let editImage = image.attributes;
-        res.render(`./partials/edit`, editImage)
+        res.render(`./edit`, editImage)
       })
   })
 

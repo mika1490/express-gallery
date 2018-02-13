@@ -1,0 +1,46 @@
+
+  <div id="navbar">
+  {{!-- home --}}
+  <div class="nav-content">
+    <div class="nav">    
+      {{#unless home}}
+        <a href="/">Gallery</a>
+      {{/unless}}
+    </div>
+
+    <div class="nav">
+      {{#unless home}}    
+        <a href="/gallery/new">New</a>
+      {{/unless}}   
+    </div>
+
+    <div class="nav">
+      <a href="/gallery/{{id}}/edit">Edit</a>
+    </div>
+  </div>
+    {{!-- new image --}}
+  <div class="nav-content">
+    <div class="nav">
+      {{!-- {{#if home}} --}}
+      <a href="/register">Register</a>
+      {{!-- {{/if}} --}}
+    </div>
+    
+    <div class="nav">
+      {{!-- {{#unless home}} --}}
+      <a href="/logout">Logout</a>
+      {{!-- {{/unless}} --}}
+    </div>
+
+    <div class="nav">
+      {{!-- {{#if home}} --}}
+        <a href="/login">Login</a>
+      {{!-- {{/if}} --}}
+    </div>
+  </div>
+  {{#if home}}
+    <div>
+ 
+    </div>
+  {{/if}}
+</div>

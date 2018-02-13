@@ -7,6 +7,25 @@ body {
 h1 {
   color: #536878; }
 
+#navbar {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  width: 100%;
+  position: fixed;
+  background-color: #FEFEFA; }
+  #navbar .nav-content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 100%;
+    margin: 5px; }
+    #navbar .nav-content .nav {
+      margin: 10px; }
+      #navbar .nav-content .nav a {
+        color: #536878;
+        text-decoration: none; }
+
 #page-header {
   display: flex;
   flex-flow: row nowrap;

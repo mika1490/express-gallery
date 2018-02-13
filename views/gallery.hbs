@@ -3,9 +3,9 @@
 
 <div id="wrapper">
 
-  {{> templates/header}}
+  {{> header}}
   <hr id="divider">
-  {{> templates/masthead}}
+  {{> masthead}}
 
 </div>
 
@@ -14,6 +14,6 @@
 {{#each db}}
   <div class="information">
     <a href="/gallery/{{id}}"><img src="{{link}}" alt =""></a> 
-    <p />Submitted by: {{author}}
+    <p />Submitted by: {{user.username}}
   </div>
 {{/each}}
