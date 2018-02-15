@@ -8,8 +8,8 @@ get tableName() {return `gallery`}
 get hasTimestamps() {return true}
 
 user() {
-return this.belongsTo(User, `user_id`);
+return this.belongsTo(`User`, `user_id`);
  }
 }
 
-module.exports = Gallery;
+module.exports = bookshelf.model(`Gallery`, Gallery);

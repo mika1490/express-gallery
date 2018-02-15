@@ -8,9 +8,11 @@ const LocalStrategy = require(`passport-local`);
 const session = require(`express-session`);
 const bcrypt = require(`bcrypt`);
 const Redis = require(`connect-redis`)(session);
+const {isAuthenticated} = require(`./routes/helper`)
 const saltRounds = 12;
 
 const User = require(`./db/models/User`);
+const Gallery = require(`./db/models/Gallery`);
 const PORT = process.env.PORT || 3000;
 const app = express();
 const methodOverride = require('method-override');
@@ -79,7 +81,7 @@ passport.serializeUser((user, done) => {
 }));
 
 app.get(`/login`, (req, res) => {
-  console.log(`hi`);
+  
   return res.render('./login');
 })
 app.post('/login', passport.authenticate('local', {
@@ -102,7 +104,6 @@ app.post('/register', (req, res) => {
       if (err) { console.log(err); }
       new User({
         username: req.body.username,
-        email: req.body.email,
         password: hash
       })
       .save()
@@ -116,11 +117,6 @@ app.post('/register', (req, res) => {
     })
   })
 });
-
-function isAuthenticated (req, res, next) {
-  if(req.isAuthenticated()) { next();}
-  else { res.redirect('/'); }
-}
 
 app.get('/secret', isAuthenticated, (req, res) => {
   console.log('req.user: ', req.user);
@@ -137,7 +133,6 @@ app.use(`/gallery`, galleryRoutes);
 app.get(`/success`, (req, res) => {
   res.send(`success`)
 })
-
 
 app.listen(PORT, () => {
   console.log(`Server Listening On Port: ${PORT}`);
