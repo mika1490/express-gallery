@@ -14,15 +14,24 @@
       {{/unless}}   
     </div>
 
-    <div class="nav">
-      <a href="/gallery/{{id}}/edit">Edit</a>
-    </div>
+     <div class="nav">
+    {{#if editImage}}
+    <div> <a href="/gallery/{{singleImage.id}}/edit">Edit</a></div>
+    {{/if}}
   </div>
+  </div>
+   
     {{!-- new image --}}
   <div class="nav-content">
+
     <div class="nav">
       {{!-- {{#if home}} --}}
       <a href="/register">Register</a>
+      {{!-- {{/if}} --}}
+    </div>
+    <div class="nav">
+      {{!-- {{#if home}} --}}
+        <a href="/login">Login</a>
       {{!-- {{/if}} --}}
     </div>
     
@@ -33,10 +42,11 @@
     </div>
 
     <div class="nav">
-      {{!-- {{#if home}} --}}
-        <a href="/login">Login</a>
-      {{!-- {{/if}} --}}
+      {{#if editImage}}
+      <div>Welcome: {{loggedInUser}}</div>
+      {{/if}}
     </div>
+
   </div>
   {{#if home}}
     <div>

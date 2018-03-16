@@ -9,17 +9,17 @@
 
 <div id="single-wrapper">
   <div id="details">
-    <h1>Image by: {{user.username}}</h1>
-    <img src="{{link}}" alt="">
+    <h1>Image by: {{singleImage.user.username}}</h1>
+    <img src="{{singleImage.link}}" alt="">
     <br>
-    <p>{{description}}</p>
+    <p>{{singleImage.description}}</p>
   </div>
   
   <div id="other-images">
     <div class="spacer"></div>
-    <div>Other Images from {{user.username}}</div>
+    <div>Other Images from {{singleImage.user.username}}</div>
     <p />
-    {{#each gallery}}
+    {{#each images}}
       <a href="/gallery/{{id}}">
         <img src="{{link}}" alt=""><p />
       </a>
