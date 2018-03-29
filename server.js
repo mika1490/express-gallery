@@ -61,6 +61,7 @@ passport.serializeUser((user, done) => {
  passport.use(new LocalStrategy(function(username, password, done) {
   return new User({ username: username }).fetch()
   .then ( user => {
+    console.log(user, 'user')
     user = user.toJSON();
     console.log(user)
     if (user === null) {
